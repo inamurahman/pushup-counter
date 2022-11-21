@@ -6,6 +6,61 @@ from playsound import playsound #for voice output
 
 import mediapipe as mp
 
+def get_high_score():
+    # Default high score
+    high_score = 0
+ 
+    # Try to read the high score from a file
+    try:
+        high_score_file = open("high_score.txt", "r")
+        high_score = int(high_score_file.read())
+        high_score_file.close()
+        print("The high score is", high_score)
+    except IOError:
+        # Error reading file, no high score
+        print("There is no high score yet.")
+    except ValueError:
+        # There's a file there, but we don't understand the number.
+        print("I'm confused. Starting with no high score.")
+ 
+    return high_score
+ 
+ 
+def save_high_score(new_high_score):
+    try:
+        # Write the file to disk
+        high_score_file = open("high_score.txt", "w")
+        high_score_file.write(str(new_high_score))
+        high_score_file.close()
+    except IOError:
+        # Hm, can't write it.
+        print("Unable to save the high score.")
+ 
+ 
+def main(a):
+    """ Main program is here. """
+    # Get the high score
+    high_score = get_high_score()
+ 
+    # Get the score from the current game
+    current_score = 0
+    try:
+        # Ask the user for his/her score
+        current_score = int(a)
+    except ValueError:
+        # Error, can't turn what they typed into a number
+        print("I don't understand what you typed.")
+ 
+    # See if we have a new high score
+    if current_score > high_score:
+        # We do! Save to disk
+        print("Yea! New high score!")
+        save_high_score(current_score)
+    else:
+        print("Better luck next time.")
+ 
+# Call the main function, start up the game
+
 mp_drawing = mp.solutions.drawing_utils
 
 mp_pose = mp.solutions.pose
@@ -131,26 +186,38 @@ with mp_pose.Pose(
     # if the `q` key was pressed, break from the loop
 
     if key == ord("r"):
-      
+
+      main(result)
+     
+      mytext ="Your score is" + str(result)#for voice output
+
+      audio = gTTS(text=mytext, lang="en", slow=False)#for voice output
+
+      audio.save("example.mp3")#for voice output
+
+      playsound("example.mp3")#for voice output
+        
       counter = 0
 
       result = 0
 
     if key == ord("q"):
 
+      main(result)
+
+      if counter != 0 :
+        mytext ="Your score is" + str(result)#for voice output
+
+        audio = gTTS(text=mytext, lang="en", slow=False)#for voice output
+
+        audio.save("example.mp3")#for voice output
+
+        playsound("example.mp3")#for voice output
+
       break
 
     # do a bit of cleanup
   
-  mytext ="Your score is" + str(result)#for voice output
-
-  audio = gTTS(text=mytext, lang="en", slow=False)#for voice output
-
-  audio.save("example.mp3")#for voice output
-
-  playsound("example.mp3")#for voice output
 
 
 cv2.destroyAllWindows()
-
-
