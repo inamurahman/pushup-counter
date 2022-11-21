@@ -1,8 +1,10 @@
 import cv2
 
-import mediapipe as mp
+from gtts import gTTS #for voice output
 
-import os
+from playsound import playsound #for voice output
+
+import mediapipe as mp
 
 mp_drawing = mp.solutions.drawing_utils
 
@@ -37,6 +39,8 @@ def findPosition(image, draw=True):
           #cv2.circle(image, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
 
   return lmList
+
+result = 0
 
 cap = cv2.VideoCapture(0)
 
@@ -102,11 +106,9 @@ with mp_pose.Pose(
 
         counter += 1
 
-        counter2 = str(int(counter))
+        result = counter
 
         print(counter)
-
-        os.system("echo '" + counter2 + "' | festival --tts")
 
     text = "{}:{}".format("Push Ups", counter)
 
@@ -128,11 +130,27 @@ with mp_pose.Pose(
 
     # if the `q` key was pressed, break from the loop
 
+    if key == ord("r"):
+      
+      counter = 0
+
+      result = 0
+
     if key == ord("q"):
 
       break
 
     # do a bit of cleanup
+  
+  mytext ="Your score is" + str(result)#for voice output
+
+  audio = gTTS(text=mytext, lang="en", slow=False)#for voice output
+
+  audio.save("example.mp3")#for voice output
+
+  playsound("example.mp3")#for voice output
+
 
 cv2.destroyAllWindows()
+
 
