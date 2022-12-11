@@ -1,8 +1,6 @@
 import cv2
 from tkinter import *
-import os
 from PIL import ImageTk, Image
-from gtts import gTTS #for voice output
 import time
 
 from playsound import playsound #for voice output

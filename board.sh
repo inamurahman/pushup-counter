@@ -1,1 +1,1 @@
-python3 lb_ui.py
+python3 lead.py

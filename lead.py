@@ -1,3 +1,4 @@
+# import tkinter as tk
 from tkinter import *
 import time
 
@@ -43,7 +44,7 @@ cols = ('Position', 'Name', 'Score')
 # listBox = tTreeview(scores, columns=cols, show='headings')
 # set column headings
 # for col in cols:
-#listBox.heading(col, text=col)    
+#     listBox.heading(col, text=col)    
 # listBox.grid(row=1, column=0, columnspan=2)
 
 show()
@@ -62,13 +63,6 @@ while 1>0:
         #tempList.sort(key=lambda e: e[1], reverse=True)
         Label(displayFrame, text="Sl.No   Name\t\t\t", font=("Arial",20), fg="white", bg="#651A84").grid(row=1, column=0, padx=10, pady=10)
         Label(displayFrame, text="Score\t", font=("Arial",20), fg="white", bg="#651A84").grid(row=1, column=1, padx=10, pady=10)
-        i=1
-        while i<6 :
-            # listBox.insert("", "end", values=(i, name, score))
-            Label(displayFrame, text=f"           \t    \t", font=("Arial", 20,), fg="white", bg="#651A84").grid(row=i+1, column=0, sticky="w")
-            Label(displayFrame, text=f" ", font=("Arial", 20), fg="white", bg="#651A84").grid(row=i+1, column=1, sticky="w", padx=10)
-            displayFrame.lift()
-            i +=1
         for i, (name, score) in enumerate(tempList[:5], start=1):
             # listBox.insert("", "end", values=(i, name, score))
             Label(displayFrame, text=f"{i:>6}.       \t{name[0:8]}\t", font=("Arial", 40,), fg="white", bg="#651A84").grid(row=i+1, column=0, sticky="w")
