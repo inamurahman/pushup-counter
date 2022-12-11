@@ -75,3 +75,11 @@ pillow (PIL)
 - Cross platform
 - Live Highscores
 
+## Photos
+
+![IMG-20221205-WA0006](https://user-images.githubusercontent.com/96386836/206923517-8da82d05-eb5e-423d-9a6d-da1a8655f1f1.jpg)
+
+![IMG-20221205-WA0010](https://user-images.githubusercontent.com/96386836/206923472-cd6ffce1-abd0-45c1-9cc0-cbc4c235a670.jpg)
+
+
+
