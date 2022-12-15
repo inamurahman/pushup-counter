@@ -73,7 +73,7 @@ pillow (PIL)
 - Live previews
 - Fullscreen mode
 - Cross platform
-- Live Highscores
+- Live Highscores (upto 5)
 
 ## Photos
 
