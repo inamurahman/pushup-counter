@@ -14,7 +14,7 @@ Our application is expected to make fitness more enjoyable by making it competit
 
 Don't Use Space or press return key while Entering Name of People only use Enter button given
 
-
+Needed fix on that :) 
 
 ## Run in Linux
 
