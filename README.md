@@ -69,8 +69,8 @@ pillow (PIL)
 
 
 ## Authors
-[Inamurahman](https://github.com/inamurahman)
-[Alen Biju](https://github.com/Berserk21)
+* [Inamurahman](https://github.com/inamurahman)  
+* [Alen Biju](https://github.com/Berserk21)
 
 ## Features
 
